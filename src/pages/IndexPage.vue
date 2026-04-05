@@ -67,7 +67,8 @@
           <div
             style="height: 100%; max-width: 365px;"
             :style="{ backgroundColor: color[note._id].value }"
-            class="round-border shadow-6 relative-position"
+            class="round-border shadow-6 relative-position cursor-pointer"
+            @click="router.push(`/note/${note._id}`)"
           >
             <div class="q-pa-md">
               <div class="myFontTitle casser text-weight-bolder ellipsis">{{ note.title }}</div>
@@ -127,7 +128,9 @@ import AddNoteForm from 'src/components/AddNoteForm.vue'
 import handlePagination from 'src/handlePagination'
 import handleDelete from 'src/handleDelete'
 import { useQuasar } from 'quasar'
+import { useRouter } from 'vue-router'
 const $q = useQuasar()
+const router = useRouter();
 
 const lienAPI = 'https://postit.zoul.dev/notes'
 
