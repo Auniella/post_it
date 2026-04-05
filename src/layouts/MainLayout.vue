@@ -25,7 +25,7 @@
           </q-avatar> -->
           Made with ❤️ by Auni
         </q-toolbar-title>
-        <span style="font-size: 2px; text-align: center;">Je mérite un petit 16 svp les APE<br> Je dois boucher mon 6 de myshop là</span>
+        <span style="font-size: 2px; text-align: center;">Je mérite la moyenne non ? Svp les APE<br> Je dois boucher mon 6 de myshop là</span>
       </q-toolbar>
     </q-footer>
 

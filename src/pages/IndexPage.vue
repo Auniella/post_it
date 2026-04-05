@@ -1,8 +1,16 @@
 <template>
   <q-page style="padding: 12px 18px; margin: auto; display: grid">
-    <p style="align-self: flex-start" class="text-h4 myFontTitle text-weight-bolder q-my-md">
-      Toutes les notes
-    </p>
+    <div class="flex justify-between">
+      <p style="align-self: flex-start" class="text-h4 myFontTitle text-weight-bolder q-my-md">
+        Toutes les notes
+      </p>
+      <p v-if="searchNote.trim().length > 0 && pagination.paginatedItems.value.length < 11" style="align-self: flex-start" class="text-h5 myFontTitle text-weight-bolder q-my-md">
+        {{ pagination.paginatedItems.value.length }} {{ formulationSearch}}
+      </p>
+      <p v-else style="align-self: flex-start" class="text-h5 myFontTitle text-weight-bolder q-my-md">
+        {{ notesData.length }} {{ formulationDisplay }}
+      </p>
+    </div>
     <div class="flex wrap justify-between items-baseline full-width q-mb-md">
       <q-input
         filled
@@ -262,6 +270,13 @@ const handleSearch = computed(() => {
 
 const pagination = handlePagination(handleSearch)
 
+const formulationSearch = computed(() => {
+  return pagination.paginatedItems.value.length <= 1 ? 'note' : 'notes'
+})
+const formulationDisplay = computed(() => {
+  return notesData.value.length  <= 1 ? 'note' : 'notes'
+})
+
 let colors = [
   { label: 'Jaune', value: '#FEF08A' },
   { label: 'Bleu', value: '#BAE6FD' },
@@ -299,6 +314,7 @@ onMounted(() => {
       // console.log(data)
       if (data) {
         notesData.value = data.notes
+        // console.log(notesData.value.length);
         updateColors()
       }
     } catch (error) {
