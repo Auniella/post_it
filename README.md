@@ -1,6 +1,6 @@
-# Quasar App (quasar-project)
+# Post it (POST_IT)
 
-A Quasar Project
+Post it de Auni
 
 ## Install the dependencies
 
