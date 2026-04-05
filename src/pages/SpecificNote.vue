@@ -3,7 +3,9 @@
     <div>
       <div class="flex justify-between q-mt-lg">
         <div class="myFontTitle text-h4 text-weight-bolder q-mb-md flex items-center">
-          <q-icon class="q-mr-md cursor-pointer" name="arrow_back" size="md" @click="() => $router.go(-1)"/>
+          <q-icon class="hoverClass q-mr-md cursor-pointer" name="arrow_back" size="md" @click="() => $router.push('/')">
+            <q-tooltip anchor="bottom middle" self="center start"> Retour a l'accueil</q-tooltip>
+          </q-icon>
           Détails de la note
         </div>
         <div class="myBtns flex justify-between">
@@ -143,7 +145,6 @@ const updateNote = async() => {
         content: note.value.content,
       })
     });
-    console.log(request);
     isLoading.value = true;
     if(request.ok){
       isEditing.value = false;
@@ -278,6 +279,15 @@ $loading-time: 700ms;
 .round-border{
   border-radius: 8px;
 }
+
+.hoverClass{
+  transition: hover 500ms;
+
+  &:hover{
+    opacity: 0.5;
+  }
+}
+
 
 .myFontTitle {
   font-family: $font-title;
