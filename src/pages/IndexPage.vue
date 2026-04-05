@@ -59,6 +59,7 @@
       </div>
 
       <template v-else>
+        <div v-if="pagination.paginatedItems.value.length <= 0">Aucune note n'a été ajoutée</div>
         <div
           v-for="note in pagination.paginatedItems.value"
           :key="note._id"
