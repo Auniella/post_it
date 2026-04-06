@@ -99,7 +99,7 @@
                 <q-btn
                   class="bg-black text-color-white"
                   icon="delete"
-                  @click="handleDelete(notesData, note._id, $q)"
+                  @click.stop="handleDelete(notesData, note._id, $q)"
                   ><q-tooltip anchor="bottom start" self="center start">
                     Supprimer la note</q-tooltip
                   ></q-btn
